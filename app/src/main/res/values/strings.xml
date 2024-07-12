@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Test Airlines</string>
+    <string name="main_bottom_bar_placemark_title">Короче</string>
+    <string name="main_bottom_bar_notification_title">Подписки</string>
+    <string name="main_bottom_bar_profile_title">Профиль</string>
+    <string name="main_bottom_bar_hotel_title">Отели</string>
+    <string name="main_bottom_bar_home_title">Авиабилеты</string>
 </resources>

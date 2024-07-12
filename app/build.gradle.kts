@@ -41,7 +41,7 @@ dependencies {
 
     //modules
     implementation(project(":home"))
-    implementation(project(":home"))
+    implementation(project(":core_ui"))
 
 
     //LiveData

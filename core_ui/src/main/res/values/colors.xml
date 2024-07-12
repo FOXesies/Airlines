@@ -9,5 +9,7 @@
     <color name="textColor">#D9D9D9</color>
     <color name="iconBack">#5E5F61</color>
 
+    <color name="dark_blue">#00427D</color>
+
     <color name="white">#FFFFFFFF</color>
 </resources>
