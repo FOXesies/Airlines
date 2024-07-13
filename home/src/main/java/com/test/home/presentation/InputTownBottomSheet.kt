@@ -3,33 +3,41 @@ package com.test.home.presentation
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.RelativeLayout
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.test.home.databinding.InputTownDialogFragmentBinding
 import com.test.home.domain.model.Suggest
-import com.test.input_town.domain.model.TypeSuggest
-import com.test.util.getFromSuggest
-import com.test.util.getToSuggest
-import com.test.util.saveFromSuggest
-import com.test.util.saveToSuggest
+import com.test.home.domain.model.TypeSuggest
+import com.test.home.util.UiEventHome
+import com.test.home.util.getFromSuggest
+import com.test.home.util.getToSuggest
+import com.test.home.util.saveFromSuggest
+import com.test.home.util.saveToSuggest
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class InputTownBottomSheet: BottomSheetDialogFragment() {
     private var binding_: InputTownDialogFragmentBinding? = null
+
+    private var modelView_: HomeModelView? = null
+    private val modelView get() = modelView_!!
     private val binding get() = binding_!!
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        modelView_ = ViewModelProvider(requireActivity())[HomeModelView::class]
         binding_ = InputTownDialogFragmentBinding.inflate(inflater, container, false)
         init()
 
@@ -66,30 +74,39 @@ class InputTownBottomSheet: BottomSheetDialogFragment() {
     private fun EditText.savebleLogic(type: TypeSuggest){
         when(type){
             TypeSuggest.TO_TOWN -> lifecycleScope.launch {
-                hint = hint.toString().plus(getToSuggest(requireContext()))
+                getToSuggest(requireContext())?.let {
+                    hint = hint.toString().plus(" - ").plus(it)
+                }
             }
             TypeSuggest.FROM_TOWN -> lifecycleScope.launch {
-                hint = hint.toString().plus(getFromSuggest(requireContext()))
+                getFromSuggest(requireContext())?.let {
+                    hint = hint.toString().plus(" - ").plus(it)
+                }
             }
         }
 
-        setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
-            if ((keyCode == KeyEvent.KEYCODE_ENTER) && event.action == KeyEvent.ACTION_UP) {
-
-                if(text.isNullOrEmpty()){
+        setOnEditorActionListener { v, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                if(text.isNullOrEmpty()) {
                     Toast.makeText(requireActivity(), "Поле пустое", Toast.LENGTH_SHORT).show()
-                    return@OnKeyListener false
+                    return@setOnEditorActionListener false
                 }
 
                 when(type){
-                    TypeSuggest.TO_TOWN -> lifecycleScope.launch { saveToSuggest(requireContext()) }
-                    TypeSuggest.FROM_TOWN -> lifecycleScope.launch { saveFromSuggest(requireContext()) }
+                    TypeSuggest.TO_TOWN -> lifecycleScope.launch {
+                        saveToSuggest(requireContext())
+                        modelView.onEvent(UiEventHome.SaveTownTo(text.toString()))
+                    }
+                    TypeSuggest.FROM_TOWN -> lifecycleScope.launch {
+                        saveFromSuggest(requireContext())
+                        modelView.onEvent(UiEventHome.SaveTownFrom(text.toString()))
+                    }
                 }
-
-                return@OnKeyListener true
+                true
+            } else {
+                false
             }
-            false
-        })
+        }
     }
 
     private fun EditText.logicTextChanged(close: RelativeLayout, replace: RelativeLayout, secondText: EditText) {

@@ -4,11 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.test.home.databinding.FragmentHomeBinding
+import com.test.home.domain.model.TypeSuggest
+import com.test.home.util.getFromSuggest
+import com.test.home.util.getToSuggest
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -26,7 +32,7 @@ class HomeFragment : Fragment() {
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         binding_ = FragmentHomeBinding.inflate(inflater, container, false)
-        modelView_ = ViewModelProvider(this)[HomeModelView::class]
+        modelView_ = ViewModelProvider(requireActivity())[HomeModelView::class]
 
         init()
         initObserver()
@@ -45,6 +51,24 @@ class HomeFragment : Fragment() {
         binding.toTv.setOnClickListener {
             InputTownBottomSheet().showNow(childFragmentManager, "toTv")
         }
+
+        binding.toTv.getSaveValue(TypeSuggest.TO_TOWN)
+        binding.formTv.getSaveValue(TypeSuggest.FROM_TOWN)
+    }
+
+    private fun TextView.getSaveValue(type: TypeSuggest){
+        when(type){
+            TypeSuggest.TO_TOWN -> lifecycleScope.launch {
+                getToSuggest(requireContext())?.let {
+                    hint = hint.toString().plus(" - ").plus(it)
+                }
+            }
+            TypeSuggest.FROM_TOWN -> lifecycleScope.launch {
+                getFromSuggest(requireContext())?.let {
+                    hint = hint.toString().plus(" - ").plus(it)
+                }
+            }
+        }
     }
 
     private fun initObserver(){
@@ -52,6 +76,18 @@ class HomeFragment : Fragment() {
             it?.let {
                 adapter.offers = it.offers
                 adapter.notifyDataSetChanged()
+            }
+        }
+
+        modelView.townTo.observe(requireActivity()){
+            it?.let {
+                binding.toTv.text = it
+            }
+        }
+
+        modelView.townFrom.observe(requireActivity()){
+            it?.let {
+                binding.formTv.text = it
             }
         }
     }
