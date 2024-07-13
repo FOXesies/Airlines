@@ -6,9 +6,9 @@ import com.hannesdorfmann.adapterdelegates4.AdapterDelegatesManager
 import com.test.home.domain.model.Suggest
 import com.test.home.util.suggestAdapterDelegate
 
-class SuggestAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class SuggestAdapter(onSuggestClickListener: OnSuggestClickListener): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val delegatesManager = AdapterDelegatesManager<List<Suggest>>()
-        .addDelegate(suggestAdapterDelegate())
+        .addDelegate(suggestAdapterDelegate(onSuggestClickListener))
 
     var suggests: List<Suggest> = emptyList()
 

@@ -213,6 +213,7 @@
                 android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/random_town"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 app:cardCornerRadius="8dp"

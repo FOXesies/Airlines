@@ -26,7 +26,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class InputTownBottomSheet: BottomSheetDialogFragment() {
+class InputTownBottomSheet: BottomSheetDialogFragment(), OnSuggestClickListener {
     private var binding_: InputTownDialogFragmentBinding? = null
 
     private var modelView_: HomeModelView? = null
@@ -60,7 +60,7 @@ class InputTownBottomSheet: BottomSheetDialogFragment() {
         )
 
         binding.suggestTown.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        val suggestAdapter = SuggestAdapter()
+        val suggestAdapter = SuggestAdapter(this)
         suggestAdapter.suggests = list
         binding.suggestTown.adapter = suggestAdapter
 
@@ -69,6 +69,13 @@ class InputTownBottomSheet: BottomSheetDialogFragment() {
 
         binding.formEt.savebleLogic(TypeSuggest.FROM_TOWN)
         binding.toEt.savebleLogic(TypeSuggest.TO_TOWN)
+
+        binding.randomTown.setOnClickListener {
+            val pick = list.random().title
+            binding.toEt.setText(pick)
+            binding.toEt.requestFocus()
+
+        }
     }
 
     private fun EditText.savebleLogic(type: TypeSuggest){
@@ -171,4 +178,13 @@ class InputTownBottomSheet: BottomSheetDialogFragment() {
                 .setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
         }
     }
+
+    override fun onSuggestClick(suggest: String) {
+        binding.toEt.setText(suggest)
+        binding.toEt.requestFocus()
+    }
+}
+
+interface OnSuggestClickListener {
+    fun onSuggestClick(suggest: String)
 }
