@@ -8,8 +8,15 @@
     <color name="textHint">#9F9F9F</color>
     <color name="textColor">#D9D9D9</color>
     <color name="iconBack">#5E5F61</color>
+    <color name="backDialog">#242529</color>
 
     <color name="dark_blue">#00427D</color>
+
+    <!--Action colors-->
+    <color name="route_action">#3A633B</color>
+    <color name="globus_action">#2261BC</color>
+    <color name="weekend_action">#00427D</color>
+    <color name="fire_action">#FF5E5E</color>
 
     <color name="white">#FFFFFFFF</color>
 </resources>
