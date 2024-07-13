@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+
+    <color name="back">#0C0C0C</color>
+    <color name="cardBack">#2F3035</color>
+    <color name="textBack">#3E3F43</color>
+    <color name="textHint">#9F9F9F</color>
+    <color name="textColor">#D9D9D9</color>
+    <color name="iconBack">#5E5F61</color>
+    <color name="backDialog">#242529</color>
+
+    <color name="dark_blue">#00427D</color>
+
+    <!--Action colors-->
+    <color name="route_action">#3A633B</color>
+    <color name="globus_action">#2261BC</color>
+    <color name="weekend_action">#00427D</color>
+    <color name="fire_action">#FF5E5E</color>
+
+    <color name="white">#FFFFFFFF</color>
+</resources>

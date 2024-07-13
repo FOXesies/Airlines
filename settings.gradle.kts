@@ -15,4 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Test Airlines"
 include(":app")
- 
+include(":home")
+include(":core_ui")

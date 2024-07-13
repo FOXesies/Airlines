@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_avia"
+        android:title="@string/main_bottom_bar_home_title" />
+
+    <item
+        android:id="@+id/nav_hotel"
+        android:icon="@drawable/ic_hotel"
+        android:title="@string/main_bottom_bar_hotel_title" />
+
+    <item
+        android:id="@+id/nav_placemark"
+        android:icon="@drawable/ic_placemark"
+        android:title="@string/main_bottom_bar_placemark_title" />
+
+    <item
+        android:id="@+id/nav_notification"
+        android:icon="@drawable/ic_notification"
+        android:title="@string/main_bottom_bar_notification_title" />
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/main_bottom_bar_profile_title" />
+
+</menu>

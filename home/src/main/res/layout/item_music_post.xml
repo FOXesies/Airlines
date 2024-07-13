@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="133dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="20dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="133dp"
+        android:layout_height="133dp"
+        app:cardCornerRadius="16dp">
+
+        <ImageView
+            android:id="@+id/image_music"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="Die Antwoord"
+        android:textSize="16sp"
+        android:fontFamily="@font/sf_pro_text_medium"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Будапешт"
+        android:textSize="14sp"
+        android:fontFamily="@font/sf_pro_text_semibold"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/icon_samolet"/>
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="от 22 264 ₽"
+            android:textSize="14sp"
+            android:fontFamily="@font/sf_pro_text_semibold"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>
