@@ -4,4 +4,6 @@
 
     <string name="fragment_home_from">Откуда</string>
     <string name="fragment_home_to">Куда</string>
+
+    <string name="rubl">₽</string>
 </resources>

@@ -17,7 +17,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:background="@drawable/circle_color"
-            android:backgroundTint="@color/fire_action" />
+            android:backgroundTint="@color/backDialog" />
 
         <LinearLayout
             android:layout_width="match_parent"

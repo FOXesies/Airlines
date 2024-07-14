@@ -6,6 +6,6 @@ import javax.inject.Singleton
 
 @Singleton
 interface TicketsPreviewApi {
-    @GET("https://drive.usercontent.google.com/u/0/uc?id=1o1nX3uFISrG1gR-jr_03Qlu4_KEZWhav&export=download")
+    @GET("https://drive.usercontent.google.com/u/0/uc?id=13WhZ5ahHBwMiHRXxWPq-bYlRVRwAujta&export=download")
     suspend fun getTickets(): ResponseTicketPreview
 }

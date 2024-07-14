@@ -1,6 +1,5 @@
 package com.test.home.domain.repository
 
-import com.test.home.domain.model.Offer
 import com.test.home.domain.model.OffersResponse
 import retrofit2.http.GET
 import javax.inject.Singleton

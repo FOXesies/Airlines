@@ -15,8 +15,8 @@ class TicketsPreviewModelView @Inject constructor(
     private val ticketsPreviewApi: TicketsPreviewApi
 ): ViewModel() {
 
-    private val tickets_ = MutableLiveData<ResponseTicketPreview>(null)
-    val tickets: LiveData<ResponseTicketPreview> = tickets_
+    private val tickets_ = MutableLiveData<ResponseTicketPreview?>(null)
+    val tickets: LiveData<ResponseTicketPreview?> = tickets_
 
     init {
         loadTickets()
@@ -24,7 +24,8 @@ class TicketsPreviewModelView @Inject constructor(
 
     private fun loadTickets(){
         viewModelScope.launch {
-            tickets_.postValue(ticketsPreviewApi.getTickets())
+            val result = ticketsPreviewApi.getTickets()
+            tickets_.postValue(result)
         }
     }
 
