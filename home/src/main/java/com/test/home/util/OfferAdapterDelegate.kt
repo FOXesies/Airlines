@@ -15,7 +15,7 @@ fun offerAdapterDelegate() = adapterDelegate<Offer, Offer>(R.layout.item_music_p
     val price: TextView = findViewById(R.id.price)
     val image: ImageView = findViewById(R.id.image_music)
 
-    bind { diffPayloads ->
+    bind {
         name.text = item.title
         city.text = item.town
         price.text = item.price.value.toString()
@@ -35,7 +35,7 @@ fun suggestAdapterDelegate(onClickListener: OnSuggestClickListener) = adapterDel
     val image: ImageView = findViewById(R.id.photo_town)
     val itemView: RelativeLayout = findViewById(R.id.item_suggest)
 
-    bind { diffPayloads ->
+    bind {
 
         city.text = item.title
         description.text = item.description

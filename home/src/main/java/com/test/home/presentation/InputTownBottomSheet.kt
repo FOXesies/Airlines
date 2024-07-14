@@ -14,9 +14,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.test.core_navigation.MainModelView
+import com.test.core_navigation.util.UiMainEvent
 import com.test.home.databinding.InputTownDialogFragmentBinding
 import com.test.home.domain.model.Suggest
 import com.test.home.domain.model.TypeSuggest
+import com.test.home.presentation.adapter.SuggestAdapter
 import com.test.home.util.UiEventHome
 import com.test.home.util.getFromSuggest
 import com.test.home.util.getToSuggest
@@ -30,6 +33,8 @@ class InputTownBottomSheet: BottomSheetDialogFragment(), OnSuggestClickListener 
     private var binding_: InputTownDialogFragmentBinding? = null
 
     private var modelView_: HomeModelView? = null
+
+    private lateinit var mainModelView: MainModelView
     private val modelView get() = modelView_!!
     private val binding get() = binding_!!
     override fun onCreateView(
@@ -38,6 +43,7 @@ class InputTownBottomSheet: BottomSheetDialogFragment(), OnSuggestClickListener 
         savedInstanceState: Bundle?
     ): View {
         modelView_ = ViewModelProvider(requireActivity())[HomeModelView::class]
+        mainModelView = ViewModelProvider(requireActivity())[MainModelView::class]
         binding_ = InputTownDialogFragmentBinding.inflate(inflater, container, false)
         init()
 
@@ -109,6 +115,15 @@ class InputTownBottomSheet: BottomSheetDialogFragment(), OnSuggestClickListener 
                         modelView.onEvent(UiEventHome.SaveTownFrom(text.toString()))
                     }
                 }
+
+                lifecycleScope.launch {
+                    this@savebleLogic.getToSuggest(requireContext())?.let {
+                        this@savebleLogic.getFromSuggest(requireContext())?.let {
+                            mainModelView.setState(UiMainEvent.OpenTicketPreview)
+                        }
+                    }
+                }
+
                 true
             } else {
                 false

@@ -1,10 +1,12 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
-    namespace = "com.test.core_ui"
+    namespace = "com.test.core_navigation"
     compileSdk = 34
 
     defaultConfig {
@@ -33,6 +35,16 @@ android {
 }
 
 dependencies {
+
+    //Dagger-hilt
+    implementation ("com.google.dagger:hilt-android:2.50")
+    implementation("androidx.annotation:annotation:1.8.0")
+    kapt ("com.google.dagger:hilt-android-compiler:2.50")
+    kapt ("androidx.hilt:hilt-compiler:1.2.0")
+
+    //LiveData
+    implementation ("androidx.compose.runtime:runtime-livedata:1.6.8")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.1")
 
     //LiveData
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.3")

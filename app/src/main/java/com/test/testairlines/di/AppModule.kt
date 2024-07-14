@@ -1,7 +1,9 @@
-package com.test.di
+package com.test.testairlines.di
 
 import com.test.home.data.repository.HomeApiImpl
 import com.test.home.domain.repository.HomeApi
+import com.test.ticket.ticket.data.repository.TicketsPreviewImpl
+import com.test.ticket.ticket.domain.repository.TicketsPreviewApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +16,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object HomeModule {
+object AppModule {
 
     private val GOOGLE_URL = "https://drive.usercontent.google.com/u/0/uc?id=1"
 
@@ -45,9 +47,15 @@ object HomeModule {
 
     @Singleton
     @Provides
-    fun provideApiService(retrofit: Retrofit): HomeApi = retrofit.create(HomeApi::class.java)
+    fun provideHomeApi(retrofit: Retrofit): HomeApi = retrofit.create(HomeApi::class.java)
 
     @Singleton
     @Provides
-    fun provideHomeRepository(homeApi: HomeApi) = HomeApiImpl(homeApi)
+    fun provideHomeImpl(homeApi: HomeApi) = HomeApiImpl(homeApi)
+
+    @Provides
+    fun provideTicketsPreviewApi(retrofit: Retrofit): TicketsPreviewApi = retrofit.create(TicketsPreviewApi::class.java)
+
+    @Provides
+    fun provideTicketsPreviewImpl(ticketApi: TicketsPreviewApi) = TicketsPreviewImpl(ticketApi)
 }

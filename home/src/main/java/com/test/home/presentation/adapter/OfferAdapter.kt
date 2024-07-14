@@ -1,4 +1,4 @@
-package com.test.home.presentation
+package com.test.home.presentation.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

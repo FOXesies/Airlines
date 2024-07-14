@@ -41,21 +41,30 @@ dependencies {
 
     //modules
     implementation(project(":home"))
-    implementation(project(":core_ui"))
+    implementation(project(":ticket"))
+    implementation(project(":core_navigation"))
 
+    //Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    //OkHttp3
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
+    implementation("com.squareup.okhttp3:okhttp-urlconnection:4.4.1")
 
     //LiveData
     implementation ("androidx.compose.runtime:runtime-livedata:1.6.8")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.1")
 
+    //LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.3")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.3")
+
 
     //Dagger-hilt
     implementation ("com.google.dagger:hilt-android:2.50")
     implementation("androidx.annotation:annotation:1.8.0")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.2")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.2")
     kapt ("com.google.dagger:hilt-android-compiler:2.50")
-    implementation ("androidx.hilt:hilt-navigation-compose:1.2.0")
     kapt ("androidx.hilt:hilt-compiler:1.2.0")
 
     implementation("androidx.core:core-ktx:1.13.1")

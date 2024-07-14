@@ -42,6 +42,7 @@ dependencies {
 
     //Module
     implementation(project(":core_ui"))
+    implementation(project(":core_navigation"))
 
     //Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")

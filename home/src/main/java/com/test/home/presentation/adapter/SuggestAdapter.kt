@@ -1,9 +1,10 @@
-package com.test.home.presentation
+package com.test.home.presentation.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegatesManager
 import com.test.home.domain.model.Suggest
+import com.test.home.presentation.OnSuggestClickListener
 import com.test.home.util.suggestAdapterDelegate
 
 class SuggestAdapter(onSuggestClickListener: OnSuggestClickListener): RecyclerView.Adapter<RecyclerView.ViewHolder>() {

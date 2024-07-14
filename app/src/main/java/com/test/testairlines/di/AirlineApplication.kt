@@ -1,8 +1,6 @@
-package com.test.testairlines
+package com.test.testairlines.di
 
 import android.app.Application
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
