@@ -57,9 +57,6 @@ dependencies {
     implementation("com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.0")
     implementation("com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.1")
 
-    //Data Store
-    implementation("androidx.datastore:datastore-preferences:1.1.1")
-
     //Dagger-hilt
     implementation("com.google.dagger:hilt-android:2.50")
     kapt ("com.google.dagger:hilt-android-compiler:2.50")
