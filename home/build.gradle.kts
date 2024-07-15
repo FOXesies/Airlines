@@ -42,6 +42,11 @@ dependencies {
 
     //Module
     implementation(project(":core_ui"))
+    implementation(project(":utils"))
+    implementation(project(":core_navigation"))
+
+    //Progressbar
+    implementation ("com.mikhaellopez:circularprogressbar:3.1.0")
 
     //Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
@@ -54,9 +59,6 @@ dependencies {
     //AdapterDelegates
     implementation("com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.0")
     implementation("com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.1")
-
-    //Data Store
-    implementation("androidx.datastore:datastore-preferences:1.1.1")
 
     //Dagger-hilt
     implementation("com.google.dagger:hilt-android:2.50")

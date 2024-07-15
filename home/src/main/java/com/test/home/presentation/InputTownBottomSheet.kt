@@ -14,14 +14,17 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.test.core_navigation.MainModelView
+import com.test.core_navigation.util.UiMainEvent
 import com.test.home.databinding.InputTownDialogFragmentBinding
 import com.test.home.domain.model.Suggest
-import com.test.home.domain.model.TypeSuggest
+import com.test.home.presentation.adapter.SuggestAdapter
 import com.test.home.util.UiEventHome
-import com.test.home.util.getFromSuggest
-import com.test.home.util.getToSuggest
-import com.test.home.util.saveFromSuggest
-import com.test.home.util.saveToSuggest
+import com.test.model.TypeSuggest
+import com.test.utils.getFromSuggest
+import com.test.utils.getToSuggest
+import com.test.utils.saveFromSuggest
+import com.test.utils.saveToSuggest
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -30,6 +33,8 @@ class InputTownBottomSheet: BottomSheetDialogFragment(), OnSuggestClickListener 
     private var binding_: InputTownDialogFragmentBinding? = null
 
     private var modelView_: HomeModelView? = null
+
+    private lateinit var mainModelView: MainModelView
     private val modelView get() = modelView_!!
     private val binding get() = binding_!!
     override fun onCreateView(
@@ -38,6 +43,7 @@ class InputTownBottomSheet: BottomSheetDialogFragment(), OnSuggestClickListener 
         savedInstanceState: Bundle?
     ): View {
         modelView_ = ViewModelProvider(requireActivity())[HomeModelView::class]
+        mainModelView = ViewModelProvider(requireActivity())[MainModelView::class]
         binding_ = InputTownDialogFragmentBinding.inflate(inflater, container, false)
         init()
 
@@ -77,7 +83,6 @@ class InputTownBottomSheet: BottomSheetDialogFragment(), OnSuggestClickListener 
 
         }
     }
-
     private fun EditText.savebleLogic(type: TypeSuggest){
         when(type){
             TypeSuggest.TO_TOWN -> lifecycleScope.launch {
@@ -94,6 +99,15 @@ class InputTownBottomSheet: BottomSheetDialogFragment(), OnSuggestClickListener 
 
         setOnEditorActionListener { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
+
+                lifecycleScope.launch {
+                    this@savebleLogic.getToSuggest(requireContext())?.let {
+                        this@savebleLogic.getFromSuggest(requireContext())?.let {
+                            mainModelView.setState(UiMainEvent.OpenTicketPreview)
+                        }
+                    }
+                }
+
                 if(text.isNullOrEmpty()) {
                     Toast.makeText(requireActivity(), "Поле пустое", Toast.LENGTH_SHORT).show()
                     return@setOnEditorActionListener false
@@ -109,12 +123,14 @@ class InputTownBottomSheet: BottomSheetDialogFragment(), OnSuggestClickListener 
                         modelView.onEvent(UiEventHome.SaveTownFrom(text.toString()))
                     }
                 }
+
                 true
             } else {
                 false
             }
         }
     }
+
 
     private fun EditText.logicTextChanged(close: RelativeLayout, replace: RelativeLayout, secondText: EditText) {
         // Очистка текста
@@ -159,7 +175,7 @@ class InputTownBottomSheet: BottomSheetDialogFragment(), OnSuggestClickListener 
                     replace.visibility = View.GONE
                 } else {
                     close.visibility = View.VISIBLE
-                    
+
                     if (secondText.text.isNullOrEmpty()) {
                         replace.visibility = View.GONE
                     } else {

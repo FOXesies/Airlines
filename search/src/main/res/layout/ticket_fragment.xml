@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/back"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="16dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="2dp"
+        android:layout_marginTop="25dp"
+        app:cardCornerRadius="16dp"
+        android:backgroundTint="@color/cardBack">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="11dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/back_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icon__4_"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="11dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp">
+
+                <EditText
+                    android:id="@+id/form_et"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="text"
+                    android:imeOptions="actionDone"
+                    android:hint="@string/fragment_home_from"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/textHint"
+                    android:background="@android:color/transparent" />
+
+                <RelativeLayout
+                    android:id="@+id/clear_from_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:layout_marginHorizontal="12dp">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:src="@drawable/ic_clear"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/replace_from_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:layout_marginHorizontal="12dp">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:src="@drawable/icon__2_"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/iconBack" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/to_et"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="text"
+                    android:imeOptions="actionDone"
+                    android:hint="@string/fragment_home_to"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/textHint"
+                    android:background="@android:color/transparent" />
+
+                <RelativeLayout
+                    android:id="@+id/clear_to_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:layout_marginHorizontal="12dp">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:src="@drawable/ic_clear"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/replace_to_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:layout_marginHorizontal="12dp">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:src="@drawable/icon__2_"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+        <Space
+            android:layout_height="12dp"
+            android:layout_width="wrap_content"/>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_reverse"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                app:cardBackgroundColor="@color/cardBack"
+                app:cardCornerRadius="50dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                <ImageView
+                    android:id="@+id/add_close"
+                    android:layout_marginTop="1dp"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:src="@drawable/ic_plus"/>
+
+                    <Space
+                        android:layout_width="5dp"
+                        android:layout_height="wrap_content"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:id="@+id/date_day_tv_reverse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/sf_pro_text_medium"
+                            android:textStyle="italic"
+                            android:textFontWeight="400"
+                            android:text="@string/ticket_fragment_backward"/>
+
+                        <TextView
+                            android:id="@+id/date_name_tv_reverse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/textHint"
+                            android:layout_marginEnd="12dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="wrap_content"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/date_route"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                app:cardBackgroundColor="@color/cardBack"
+                app:cardCornerRadius="50dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:id="@+id/date_day_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:layout_marginStart="12dp"
+                        android:fontFamily="@font/sf_pro_text_medium"
+                        android:textStyle="italic"
+                        android:textFontWeight="400"
+                        android:text="24 феб"/>
+
+                <TextView
+                    android:id="@+id/date_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textHint"
+                    android:layout_marginEnd="12dp"
+                    android:fontFamily="@font/sf_pro_text_medium"
+                    android:textStyle="italic"
+                    android:textFontWeight="400"
+                    android:text=", сб"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="wrap_content"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                app:cardBackgroundColor="@color/cardBack"
+                app:cardCornerRadius="50dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_marginTop="1dp"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="12dp"
+                        android:src="@drawable/ic_person_ticket"/>
+
+                    <Space
+                        android:layout_width="12dp"
+                        android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:layout_marginEnd="12dp"
+                    android:fontFamily="@font/sf_pro_text_medium"
+                    android:textStyle="italic"
+                    android:textFontWeight="400"
+                    android:text="1, эконом"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="wrap_content"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                app:cardBackgroundColor="@color/cardBack"
+                app:cardCornerRadius="50dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_marginTop="1dp"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="12dp"
+                        android:src="@drawable/ic_setting_ticket"/>
+
+                    <Space
+                        android:layout_width="10dp"
+                        android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:layout_marginEnd="12dp"
+                    android:fontFamily="@font/sf_pro_text_medium"
+                    android:textStyle="italic"
+                    android:textFontWeight="400"
+                    android:text="фильтры"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <Space
+            android:layout_height="12dp"
+            android:layout_width="wrap_content"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@color/ticketBack">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="16dp"
+                    android:text="@string/ticket_fragment_title_tickets"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/tickets_suggest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/item_ticket"
+                    android:visibility="gone"
+                    android:layout_marginBottom="16dp"/>
+
+                <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                    android:id="@+id/wait_load_suggest"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cpb_background_progressbar_color="@color/textHint"
+                    app:cpb_background_progressbar_width="10dp"
+                    app:cpb_indeterminate_mode="true"
+                    app:cpb_progress_direction="to_right"
+                    app:cpb_progressbar_color="@color/globus_action"
+                    app:cpb_progressbar_width="6dp"
+                    android:layout_marginBottom="50dp"
+                    android:layout_marginTop="15dp"
+                    app:cpb_round_border="true"
+                    android:layout_gravity="center" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/open_tickets"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:cornerRadius="16dp"
+            android:backgroundTint="@color/globus_action"
+            android:textSize="16sp"
+            android:fontFamily="@font/sf_pro_text_medium"
+            android:textStyle="italic"
+            android:textFontWeight="600"
+            android:layout_marginTop="24dp"
+            android:textColor="@color/white"
+            android:text="@string/ticket_fragment_show_all_ticket"/>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

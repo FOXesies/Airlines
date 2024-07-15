@@ -15,13 +15,15 @@
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginHorizontal="16dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
             <TextView
                 android:layout_width="172dp"
@@ -74,11 +76,11 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="10dp"
+                                android:background="@android:color/transparent"
                                 android:hint="@string/fragment_home_from"
                                 android:textColor="@color/white"
-                                android:textSize="16sp"
                                 android:textColorHint="@color/textHint"
-                                android:background="@android:color/transparent" />
+                                android:textSize="16sp" />
 
                             <View
                                 android:layout_width="match_parent"
@@ -90,11 +92,11 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
+                                android:background="@android:color/transparent"
                                 android:hint="@string/fragment_home_to"
                                 android:textColor="@color/white"
-                                android:textSize="16sp"
                                 android:textColorHint="@color/textHint"
-                                android:background="@android:color/transparent" />
+                                android:textSize="16sp" />
 
                         </LinearLayout>
 
@@ -116,12 +118,29 @@
 
         </LinearLayout>
 
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/wait_load_music"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cpb_background_progressbar_color="@color/textHint"
+            app:cpb_background_progressbar_width="10dp"
+            app:cpb_indeterminate_mode="true"
+            app:cpb_progress_direction="to_right"
+            app:cpb_progressbar_color="@color/globus_action"
+            app:cpb_progressbar_width="6dp"
+            android:layout_marginTop="40dp"
+            app:cpb_round_border="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/suggest_music_travel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:orientation="horizontal"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
             tools:listitem="@layout/item_music_post" />
 

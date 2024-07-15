@@ -10,9 +10,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.test.home.databinding.FragmentHomeBinding
-import com.test.home.domain.model.TypeSuggest
-import com.test.home.util.getFromSuggest
-import com.test.home.util.getToSuggest
+import com.test.home.presentation.adapter.OfferAdapter
+import com.test.model.TypeSuggest
+import com.test.utils.getFromSuggest
+import com.test.utils.getToSuggest
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -74,6 +75,8 @@ class HomeFragment : Fragment() {
     private fun initObserver(){
         modelView.offers.observe(viewLifecycleOwner){
             it?.let {
+                binding.waitLoadMusic.visibility = View.GONE
+                binding.suggestMusicTravel.visibility = View.VISIBLE
                 adapter.offers = it.offers
                 adapter.notifyDataSetChanged()
             }

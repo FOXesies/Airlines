@@ -18,5 +18,9 @@
     <color name="weekend_action">#00427D</color>
     <color name="fire_action">#FF5E5E</color>
 
+    <!--Action colors-->
+    <color name="ticketBack">#1D1E20</color>
+
+
     <color name="white">#FFFFFFFF</color>
 </resources>
