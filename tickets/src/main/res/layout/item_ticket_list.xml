@@ -60,6 +60,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="03:14"
+                        android:fontFamily="@font/sf_pro_text_medium"
+                        android:textStyle="italic"
+                        android:textFontWeight="400"
                         android:textColor="@color/white" />
 
                     <TextView
@@ -67,6 +70,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="VKO"
+                        android:fontFamily="@font/sf_pro_text_medium"
+                        android:textStyle="italic"
+                        android:textFontWeight="400"
                         android:textColor="@color/textHint" />
 
                 </LinearLayout>
@@ -88,6 +94,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="03:14"
+                        android:fontFamily="@font/sf_pro_text_medium"
+                        android:textStyle="italic"
+                        android:textFontWeight="400"
                         android:textColor="@color/white" />
 
                     <TextView
@@ -95,6 +104,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="VKO"
+                        android:fontFamily="@font/sf_pro_text_medium"
+                        android:textStyle="italic"
+                        android:textFontWeight="400"
                         android:textColor="@color/textHint" />
 
                 </LinearLayout>

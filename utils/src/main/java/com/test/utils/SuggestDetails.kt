@@ -8,6 +8,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.test.utils.DataStoreKey.DATE
 import com.test.utils.DataStoreKey.NAME
 import kotlinx.coroutines.flow.first
 
@@ -26,6 +27,15 @@ suspend fun EditText.saveFromSuggest(context: Context){
     }
 }
 
+suspend fun Context.saveToDate(date: String){
+    suggestTo.edit {
+        it[DATE] = date.trim()
+    }
+}
+
+
+suspend fun TextView.getToDate(context: Context) = context.suggestTo.data.first()[DATE]
+
 suspend fun EditText.getToSuggest(context: Context) = context.suggestTo.data.first()[NAME]
 suspend fun EditText.getFromSuggest(context: Context) = context.suggestFrom.data.first()[NAME]
 suspend fun TextView.getToSuggest(context: Context) = context.suggestTo.data.first()[NAME]
@@ -33,4 +43,5 @@ suspend fun TextView.getFromSuggest(context: Context) = context.suggestFrom.data
 
 private object DataStoreKey {
     val NAME = stringPreferencesKey("town")
+    val DATE = stringPreferencesKey("date")
 }

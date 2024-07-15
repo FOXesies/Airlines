@@ -181,6 +181,7 @@
                     android:layout_marginTop="1dp"
                     android:layout_width="16dp"
                     android:layout_height="16dp"
+
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="12dp"
                     android:src="@drawable/ic_plus"/>
@@ -199,6 +200,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/white"
+                            android:fontFamily="@font/sf_pro_text_medium"
+                            android:textStyle="italic"
+                            android:textFontWeight="400"
                             android:text="@string/ticket_fragment_backward"/>
 
                         <TextView
@@ -236,6 +240,9 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
                         android:layout_marginStart="12dp"
+                        android:fontFamily="@font/sf_pro_text_medium"
+                        android:textStyle="italic"
+                        android:textFontWeight="400"
                         android:text="24 феб"/>
 
                 <TextView
@@ -244,6 +251,9 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/textHint"
                     android:layout_marginEnd="12dp"
+                    android:fontFamily="@font/sf_pro_text_medium"
+                    android:textStyle="italic"
+                    android:textFontWeight="400"
                     android:text=", сб"/>
 
                 </LinearLayout>
@@ -282,6 +292,9 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
                     android:layout_marginEnd="12dp"
+                    android:fontFamily="@font/sf_pro_text_medium"
+                    android:textStyle="italic"
+                    android:textFontWeight="400"
                     android:text="1, эконом"/>
 
                 </LinearLayout>
@@ -320,6 +333,9 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
                     android:layout_marginEnd="12dp"
+                    android:fontFamily="@font/sf_pro_text_medium"
+                    android:textStyle="italic"
+                    android:textFontWeight="400"
                     android:text="фильтры"/>
 
                 </LinearLayout>
@@ -389,6 +405,9 @@
             app:cornerRadius="16dp"
             android:backgroundTint="@color/globus_action"
             android:textSize="16sp"
+            android:fontFamily="@font/sf_pro_text_medium"
+            android:textStyle="italic"
+            android:textFontWeight="600"
             android:layout_marginTop="24dp"
             android:textColor="@color/white"
             android:text="@string/ticket_fragment_show_all_ticket"/>

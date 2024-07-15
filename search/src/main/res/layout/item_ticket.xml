@@ -35,6 +35,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/white"
+                android:fontFamily="@font/sf_pro_text_medium"
+                android:textStyle="italic"
+                android:textFontWeight="600"
                 android:text="Название линии"/>
             
             <Space
@@ -46,6 +49,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/globus_action"
+                android:fontFamily="@font/sf_pro_text_medium"
+                android:textStyle="italic"
+                android:textFontWeight="600"
                 android:text="2.4587 P"/>
 
             <Space

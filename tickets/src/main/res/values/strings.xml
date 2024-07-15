@@ -4,4 +4,7 @@
     <string name="time_in_route">ч в пути</string>
     <string name="seraptor">/</string>
     <string name="info_transfer">Без пересадок</string>
+    <string name="ticket_list_filtr">Фильтр</string>
+    <string name="ticket_list_graphic">График цен</string>
+    <string name="hard_one_pass">, 1 пассажир</string>
 </resources>
