@@ -17,5 +17,5 @@ rootProject.name = "Test Airlines"
 include(":app")
 include(":home")
 include(":core_ui")
-include(":ticket")
+include(":search")
 include(":core_navigation")

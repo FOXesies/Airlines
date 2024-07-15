@@ -2,6 +2,7 @@ package com.test.testairlines.presentation
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             when(it){
                 UiMainEvent.OpenHome -> openFragment(HomeFragment())
                 UiMainEvent.OpenTicketPreview -> openFragment(TicketsFragment())
+                UiMainEvent.OpenTicketList -> {}
             }
         }
     }
@@ -54,5 +56,22 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             .replace(R.id.nav_fragment, fragment)
             .commit()
         return true
+    }
+
+    private var timestampBack = System.currentTimeMillis()
+    override fun onBackPressed() {
+        val fragmentManager = supportFragmentManager
+        if (!modelView.isNavEmpty()){
+            modelView.onBack()
+        } else {
+            if(timestampBack + 2000 > System.currentTimeMillis()) {
+                super.onBackPressed()
+                moveTaskToBack(true)
+            }
+            else {
+                Toast.makeText(this, "Нажмите еще раз для выхода", Toast.LENGTH_SHORT).show()
+            }
+            timestampBack = System.currentTimeMillis()
+        }
     }
 }

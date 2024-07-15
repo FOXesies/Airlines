@@ -18,8 +18,7 @@ fun offerAdapterDelegate() = adapterDelegate<Offer, Offer>(R.layout.item_music_p
     bind {
         name.text = item.title
         city.text = item.town
-        price.text = item.price.value.toString()
-        price.text = item.price.value.toString()
+        price.text = "от ${item.price.value} ${getString(com.test.core_ui.R.string.rubl)}"
 
         when(item.id){
             1L -> image.setImageDrawable(getDrawable(R.drawable.music_1))

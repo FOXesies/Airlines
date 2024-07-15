@@ -41,7 +41,7 @@ dependencies {
 
     //modules
     implementation(project(":home"))
-    implementation(project(":ticket"))
+    implementation(project(":search"))
     implementation(project(":core_navigation"))
 
     //Retrofit

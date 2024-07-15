@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.test.core_navigation.MainModelView
+import com.test.core_navigation.util.UiMainEvent
 import com.test.ticket.databinding.TicketFragmentBinding
 import com.test.ticket.ticket.presentation.adapter.TicketsPreviewAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,6 +24,7 @@ class TicketsFragment: Fragment() {
     private val binding get() = binding_!!
 
     private lateinit var modelView: TicketsPreviewModelView
+    private lateinit var mainModelView: MainModelView
     private lateinit var adapter: TicketsPreviewAdapter
     private lateinit var calendarPicker: DatePickerDialog
     override fun onCreateView(
@@ -32,6 +35,7 @@ class TicketsFragment: Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         binding_ = TicketFragmentBinding.inflate(inflater, container, false)
         modelView = ViewModelProvider(this)[TicketsPreviewModelView::class]
+        mainModelView = ViewModelProvider(requireActivity())[MainModelView::class]
         init()
 
         return binding.root
@@ -46,6 +50,14 @@ class TicketsFragment: Fragment() {
 
         binding.dateRoute.setOnClickListener {
             calendarPicker.show()
+        }
+
+        binding.backImage.setOnClickListener {
+            mainModelView.onBack()
+        }
+
+        binding.openTickets.setOnClickListener {
+            mainModelView.setState(UiMainEvent.OpenTicketList)
         }
 
         initObserver()

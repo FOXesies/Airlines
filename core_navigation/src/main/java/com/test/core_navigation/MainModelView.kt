@@ -17,4 +17,14 @@ class MainModelView @Inject constructor(): ViewModel() {
         uiEvent_.postValue(event)
     }
 
+    fun onBack(){
+        when(uiEvent.value){
+            UiMainEvent.OpenTicketPreview -> setState(UiMainEvent.OpenHome)
+            UiMainEvent.OpenTicketList -> setState(UiMainEvent.OpenTicketPreview)
+            else -> TODO()
+        }
+    }
+
+    fun isNavEmpty() = uiEvent_.value == UiMainEvent.OpenHome
+
 }
