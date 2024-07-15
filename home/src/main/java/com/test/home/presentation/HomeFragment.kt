@@ -9,12 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.test.core_navigation.MainModelView
 import com.test.home.databinding.FragmentHomeBinding
 import com.test.home.domain.model.TypeSuggest
 import com.test.home.presentation.adapter.OfferAdapter
-import com.test.home.util.getFromSuggest
-import com.test.home.util.getToSuggest
+import com.test.utils.getFromSuggest
+import com.test.utils.getToSuggest
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

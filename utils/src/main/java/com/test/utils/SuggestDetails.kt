@@ -1,4 +1,4 @@
-package com.test.home.util
+package com.test.utils
 
 import android.content.Context
 import android.widget.EditText
@@ -8,7 +8,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.test.home.util.DataStoreKey.NAME
+import com.test.utils.DataStoreKey.NAME
 import kotlinx.coroutines.flow.first
 
 private val Context.suggestTo: DataStore<Preferences> by preferencesDataStore(name = "suggestTo")

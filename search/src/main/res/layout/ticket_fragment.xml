@@ -24,13 +24,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="11dp"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/back_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="5dp"
                 android:layout_gravity="center"
                 android:src="@drawable/icon__4_"/>
 
@@ -38,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_margin="16dp"
+            android:layout_margin="11dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -352,8 +353,8 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/open_tickets"
             android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:background="@drawable/radius_button"
+            android:layout_height="60dp"
+            app:cornerRadius="16dp"
             android:backgroundTint="@color/globus_action"
             android:textSize="16sp"
             android:layout_marginTop="24dp"

@@ -21,10 +21,10 @@ import com.test.home.domain.model.Suggest
 import com.test.home.domain.model.TypeSuggest
 import com.test.home.presentation.adapter.SuggestAdapter
 import com.test.home.util.UiEventHome
-import com.test.home.util.getFromSuggest
-import com.test.home.util.getToSuggest
-import com.test.home.util.saveFromSuggest
-import com.test.home.util.saveToSuggest
+import com.test.utils.getFromSuggest
+import com.test.utils.getToSuggest
+import com.test.utils.saveFromSuggest
+import com.test.utils.saveToSuggest
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -100,6 +100,15 @@ class InputTownBottomSheet: BottomSheetDialogFragment(), OnSuggestClickListener 
 
         setOnEditorActionListener { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
+
+                lifecycleScope.launch {
+                    this@savebleLogic.getToSuggest(requireContext())?.let {
+                        this@savebleLogic.getFromSuggest(requireContext())?.let {
+                            mainModelView.setState(UiMainEvent.OpenTicketPreview)
+                        }
+                    }
+                }
+
                 if(text.isNullOrEmpty()) {
                     Toast.makeText(requireActivity(), "Поле пустое", Toast.LENGTH_SHORT).show()
                     return@setOnEditorActionListener false
@@ -113,14 +122,6 @@ class InputTownBottomSheet: BottomSheetDialogFragment(), OnSuggestClickListener 
                     TypeSuggest.FROM_TOWN -> lifecycleScope.launch {
                         saveFromSuggest(requireContext())
                         modelView.onEvent(UiEventHome.SaveTownFrom(text.toString()))
-                    }
-                }
-
-                lifecycleScope.launch {
-                    this@savebleLogic.getToSuggest(requireContext())?.let {
-                        this@savebleLogic.getFromSuggest(requireContext())?.let {
-                            mainModelView.setState(UiMainEvent.OpenTicketPreview)
-                        }
                     }
                 }
 

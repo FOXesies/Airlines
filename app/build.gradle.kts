@@ -35,6 +35,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 dependencies {
@@ -42,6 +45,7 @@ dependencies {
     //modules
     implementation(project(":home"))
     implementation(project(":search"))
+    implementation(project(":tickets"))
     implementation(project(":core_navigation"))
 
     //Retrofit

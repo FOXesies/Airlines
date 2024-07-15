@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="time_in_route">ч в пути</string>
+    <string name="seraptor">/</string>
+    <string name="info_transfer">Без пересадок</string>
+</resources>

@@ -42,6 +42,7 @@ dependencies {
 
     //Module
     implementation(project(":core_ui"))
+    implementation(project(":utils"))
     implementation(project(":core_navigation"))
 
     //Retrofit

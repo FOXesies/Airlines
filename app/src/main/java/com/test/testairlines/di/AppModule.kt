@@ -53,9 +53,11 @@ object AppModule {
     @Provides
     fun provideHomeImpl(homeApi: HomeApi) = HomeApiImpl(homeApi)
 
+    @Singleton
     @Provides
     fun provideTicketsPreviewApi(retrofit: Retrofit): TicketsPreviewApi = retrofit.create(TicketsPreviewApi::class.java)
 
+    @Singleton
     @Provides
     fun provideTicketsPreviewImpl(ticketApi: TicketsPreviewApi) = TicketsPreviewImpl(ticketApi)
 }
