@@ -7,7 +7,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegate
 import com.test.ticket.R
-import com.test.ticket.ticket.domain.model.TicketPreview
+import com.test.ticket.domain.model.TicketPreview
 
 fun ticketPreviewDelegate() = adapterDelegate<TicketPreview, TicketPreview>(R.layout.item_ticket){
     val nameLine = findViewById<TextView>(R.id.name_line)

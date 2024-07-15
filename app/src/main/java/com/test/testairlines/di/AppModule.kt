@@ -4,6 +4,8 @@ import com.test.home.data.repository.HomeApiImpl
 import com.test.home.domain.repository.HomeApi
 import com.test.ticket.ticket.data.repository.TicketsPreviewImpl
 import com.test.ticket.ticket.domain.repository.TicketsPreviewApi
+import com.test.tickets.data.repository.TicketsListImpl
+import com.test.tickets.domain.repository.TicketsListApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -53,11 +55,15 @@ object AppModule {
     @Provides
     fun provideHomeImpl(homeApi: HomeApi) = HomeApiImpl(homeApi)
 
-    @Singleton
     @Provides
     fun provideTicketsPreviewApi(retrofit: Retrofit): TicketsPreviewApi = retrofit.create(TicketsPreviewApi::class.java)
 
-    @Singleton
     @Provides
     fun provideTicketsPreviewImpl(ticketApi: TicketsPreviewApi) = TicketsPreviewImpl(ticketApi)
+
+    @Provides
+    fun provideTicketsListApi(retrofit: Retrofit): TicketsListApi = retrofit.create(TicketsListApi::class.java)
+
+    @Provides
+    fun provideTicketsListImpl(ticketApi: TicketsListApi) = TicketsListImpl(ticketApi)
 }

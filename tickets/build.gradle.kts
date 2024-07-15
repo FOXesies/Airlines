@@ -29,13 +29,15 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        viewBinding = true
+    }
     kotlinOptions {
         jvmTarget = "1.8"
     }
 }
 
 dependencies {
-
 
     //Module
     implementation(project(":core_ui"))
@@ -49,6 +51,9 @@ dependencies {
     //OkHttp3
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
     implementation("com.squareup.okhttp3:okhttp-urlconnection:4.4.1")
+
+    //Progressbar
+    implementation ("com.mikhaellopez:circularprogressbar:3.1.0")
 
     //AdapterDelegates
     implementation("com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.0")

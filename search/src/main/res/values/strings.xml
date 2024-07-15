@@ -4,4 +4,5 @@
     <string name="ticket_fragment_title_tickets">Прямые рейсы</string>
     <string name="ticket_fragment_show_all_ticket">Посмотреть все билеты</string>
     <string name="ticket_fragment_all_in_card">Показать все</string>
+    <string name="que">Удалить или заменить дату?</string>
 </resources>

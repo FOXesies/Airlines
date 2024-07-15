@@ -1,16 +1,17 @@
-package com.test.ticket.ticket.presentation.adapter
+package com.test.tickets.presentation.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegatesManager
-import com.test.ticket.domain.model.TicketPreview
-import com.test.ticket.ticket.util.ticketPreviewDelegate
+import com.test.tickets.domain.model.Ticket
+import com.test.tickets.util.ticketListDelegate
 
-class TicketsPreviewAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private val delegatesManager = AdapterDelegatesManager<List<TicketPreview>>()
-        .addDelegate(ticketPreviewDelegate())
+class TicketListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private val delegatesManager = AdapterDelegatesManager<List<Ticket>>()
+            .addDelegate(ticketListDelegate())
 
-    var tickets = emptyList<TicketPreview>()
+    var tickets = emptyList<Ticket>()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return delegatesManager.onCreateViewHolder(parent, viewType)
     }

@@ -33,6 +33,9 @@ android {
 }
 
 dependencies {
+
+    //Module
+    implementation(project(":core_navigation"))
     
     //Data Store
     implementation("androidx.datastore:datastore-preferences:1.1.1")

@@ -1,4 +1,6 @@
-package com.test.ticket.ticket.domain.model
+package com.test.ticket.domain.model
+
+import com.test.model.Price
 
 data class TicketPreview(
     val id: Long,

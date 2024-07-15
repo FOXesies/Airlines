@@ -1,4 +1,4 @@
-package com.test.home.domain.model
+package com.test.model
 
 enum class TypeSuggest {
     FROM_TOWN,

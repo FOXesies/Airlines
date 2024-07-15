@@ -11,6 +11,7 @@ import com.test.core_navigation.util.UiMainEvent
 import com.test.home.presentation.HomeFragment
 import com.test.testairlines.R
 import com.test.ticket.ticket.presentation.TicketsFragment
+import com.test.tickets.presentation.TicketsListFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             when(it){
                 UiMainEvent.OpenHome -> openFragment(HomeFragment())
                 UiMainEvent.OpenTicketPreview -> openFragment(TicketsFragment())
-                UiMainEvent.OpenTicketList -> {}
+                UiMainEvent.OpenTicketList -> openFragment(TicketsListFragment())
             }
         }
     }

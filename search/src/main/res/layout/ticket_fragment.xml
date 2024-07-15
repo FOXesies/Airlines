@@ -165,6 +165,7 @@
                 android:layout_height="wrap_content">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card_reverse"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
                 app:cardBackgroundColor="@color/cardBack"
@@ -176,6 +177,7 @@
                     android:layout_gravity="center">
 
                 <ImageView
+                    android:id="@+id/add_close"
                     android:layout_marginTop="1dp"
                     android:layout_width="16dp"
                     android:layout_height="16dp"
@@ -187,12 +189,26 @@
                         android:layout_width="5dp"
                         android:layout_height="wrap_content"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:layout_marginEnd="12dp"
-                    android:text="@string/ticket_fragment_backward"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:id="@+id/date_day_tv_reverse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:text="@string/ticket_fragment_backward"/>
+
+                        <TextView
+                            android:id="@+id/date_name_tv_reverse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/textHint"
+                            android:layout_marginEnd="12dp"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -344,7 +360,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:listitem="@layout/item_ticket"
+                    android:visibility="gone"
                     android:layout_marginBottom="16dp"/>
+
+                <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                    android:id="@+id/wait_load_suggest"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cpb_background_progressbar_color="@color/textHint"
+                    app:cpb_background_progressbar_width="10dp"
+                    app:cpb_indeterminate_mode="true"
+                    app:cpb_progress_direction="to_right"
+                    app:cpb_progressbar_color="@color/globus_action"
+                    app:cpb_progressbar_width="6dp"
+                    android:layout_marginBottom="50dp"
+                    android:layout_marginTop="15dp"
+                    app:cpb_round_border="true"
+                    android:layout_gravity="center" />
 
             </LinearLayout>
 

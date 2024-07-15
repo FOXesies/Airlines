@@ -18,9 +18,9 @@ import com.test.core_navigation.MainModelView
 import com.test.core_navigation.util.UiMainEvent
 import com.test.home.databinding.InputTownDialogFragmentBinding
 import com.test.home.domain.model.Suggest
-import com.test.home.domain.model.TypeSuggest
 import com.test.home.presentation.adapter.SuggestAdapter
 import com.test.home.util.UiEventHome
+import com.test.model.TypeSuggest
 import com.test.utils.getFromSuggest
 import com.test.utils.getToSuggest
 import com.test.utils.saveFromSuggest
@@ -83,7 +83,6 @@ class InputTownBottomSheet: BottomSheetDialogFragment(), OnSuggestClickListener 
 
         }
     }
-
     private fun EditText.savebleLogic(type: TypeSuggest){
         when(type){
             TypeSuggest.TO_TOWN -> lifecycleScope.launch {
@@ -132,6 +131,7 @@ class InputTownBottomSheet: BottomSheetDialogFragment(), OnSuggestClickListener 
         }
     }
 
+
     private fun EditText.logicTextChanged(close: RelativeLayout, replace: RelativeLayout, secondText: EditText) {
         // Очистка текста
         close.setOnClickListener {
@@ -175,7 +175,7 @@ class InputTownBottomSheet: BottomSheetDialogFragment(), OnSuggestClickListener 
                     replace.visibility = View.GONE
                 } else {
                     close.visibility = View.VISIBLE
-                    
+
                     if (secondText.text.isNullOrEmpty()) {
                         replace.visibility = View.GONE
                     } else {
